@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package RTL-SDRConnector;
+package org.apache.mahout.ingestors.SDR.RTL_SDR.RTL_SDR_Connector;
 
 import org.apache.nifi.util.TestRunner;
 import org.apache.nifi.util.TestRunners;
@@ -22,13 +22,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class MyProcessorTest {
+public class RTL_SDR_ConnectorTest {
 
-    private TestRunner testRunner;
+    private TestRunner RTL_SDR_Connector;
 
     @Before
     public void init() {
-        testRunner = TestRunners.newTestRunner(MyProcessor.class);
+        testRunner = TestRunners.newTestRunner(RTL_SDR_Connector.class);
     }
 
     @Test
