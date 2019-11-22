@@ -11,11 +11,17 @@ env@3.7:
 
 env: env@3.7
 
-java: clean-env env && \
+java-build: clean-env env && \
       package
 
-clean: mvn clean && \
-       find ./RTL-SDR-ingestor/nifi-nifi-rf-nar/src/main/python -type f -name '*.pyc' -exec rm {}
+pythonp-build:
+    clean-env env && \
+    conda -
+
+
+clean:
+    mvn clean && \
+    find ./RTL-SDR-ingestor/nifi-nifi-rf-nar/src/main/python -type f -name '*.pyc' -exec rm {}
 
 all@2.7: clean clean-env@2.7 env@2.7 package
 
@@ -27,11 +33,12 @@ clean-env2.7: conda clean-env --all  && \
 
 clean-all: clean-env clean
 
-package: mvn clean clean-env release
+package: env java-build
 
 install: all
 
 deploy:
+    cp
 
 
 
