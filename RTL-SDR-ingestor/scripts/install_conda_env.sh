@@ -18,6 +18,8 @@
 
 set -ex
 
+#need to set to non-interactive -- the conda create command below can prompt occasionally for a [(y)]/(n)
+
 export SET_PYTHON_VERSION=false
 export PYTHON_VERSION=python3.7  #default version to 3.7
 
@@ -25,12 +27,18 @@ if [[ "$1" -gt "-1" ]]
   then SET_PYTHON_VERSION=TRUE
 fi
 
-conda create cusignal-nifi
+# add a formal variable check.. ensure arg matches on Python, etc.
+
+# this conda version is a bit wonkey and always needs the --name varialbe set: `conda 4.7.12` 11/18/2019
+conda update conda
+conda create -n=cusignal-nifi
 conda activate cusignal-nifi
+conda update --name cusignal-nifi --file ../cusignal_conda_env.yml
+
 if [[set_PYTHON_VERSION]];
  then  conda install -n cusignal-nifi --python @1 -f cusignal_conda_env.yml
 else
-   conda install -n cusignal-nifi  --python @1 -f cusignal_conda_env.yml
+   conda install -name cusignal-nifi  --python @1 -f cusignal_conda_env.yml
 fi
 
 

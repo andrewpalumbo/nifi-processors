@@ -32,4 +32,18 @@
         <module>nifi-nifi-rf-nar</module>
     </modules>
 
+    <!-- https://blogs.apache.org/nifi/entry/stream_processing_nifi_and_spark in case we want a spark direct processor
+     likely not since we want complete control of where the provenance of our datum. and want to be able to choose
+     our memory, GPU, DEVICE, MAIN_MEMORY.on_heap, MAIN_MEMORY.off_heap,  Though might be optimized for
+     MAIN_MEMORY.on_heap.  ToDo.. taka a look at this.
+     -->
+
+  <dependencies>
+     <dependency>
+       <groupId>org.apache.nifi</groupId>
+       <artifactId>nifi-spark-receiver</artifactId>
+       <version>1.10.0</version>
+    </dependency>
+  </dependencies>
+
 </project>
