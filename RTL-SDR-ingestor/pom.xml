@@ -24,13 +24,19 @@
 
     <groupId>org.apache.mahout.ingestion</groupId>
     <artifactId>RTL-SDR-ingestor</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>nifi-nifi-rf-processors</module>
         <module>nifi-nifi-rf-nar</module>
     </modules>
+
+    <properties>
+       <nar-maven-plugin.version>1.1.0</nar-maven-plugin.version>
+       <nifi-spark-receiver.version>1.10.0</nifi-spark-receiver.version>
+    </properties>
+
 
     <!-- https://blogs.apache.org/nifi/entry/stream_processing_nifi_and_spark in case we want a spark direct processor
      likely not since we want complete control of where the provenance of our datum. and want to be able to choose
@@ -42,8 +48,18 @@
      <dependency>
        <groupId>org.apache.nifi</groupId>
        <artifactId>nifi-spark-receiver</artifactId>
-       <version>1.10.0</version>
+       <version>${nifi-spark-receiver.version}</version>
     </dependency>
   </dependencies>
 
+    <build>
+      <plugins>
+        <plugin>
+            <groupId>org.apache.nifi</groupId>
+            <artifactId>nifi-nar-maven-plugin</artifactId>
+            <version>${nar-maven-plugin.version}</version>
+            <extensions>true</extensions>
+        </plugin>
+      </plugins>
+    </build>
 </project>
