@@ -1,2 +1,1 @@
-import rtl_sdr
-
+from rtlsdr import RtlSdr

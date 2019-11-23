@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-.PHONY  conda-env@2.7 env java clean all docker-env deploy clean clean-env conda-env@2.7 env@3.7 env@2.7 all@2.7:
+.PHONY  env@2.7 env java-build python-build all clean clean-env clean-env@2.7 \
+ docker-env deploy clean clean-env conda-env@2.7 env@3.7 env@2.7 all@2.7:
 
     ./scripts/install_conda_env.sh python2.7
 
@@ -14,9 +15,16 @@ env: env@3.7
 java-build: clean-env env && \
       package
 
-pythonp-build:
+java-clean: 
+    mvn clean
+
+python-build:
     clean-env env && \
-    conda -
+    conda - && \
+    conda   && \
+
+
+python-clean:
 
 
 clean:
@@ -33,12 +41,11 @@ clean-env2.7: conda clean-env --all  && \
 
 clean-all: clean-env clean
 
-package: env java-build
+package: java-build
 
 install: all
 
-deploy:
-    cp
+deploy: clean 
 
 
 
