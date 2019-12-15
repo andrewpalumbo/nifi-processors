@@ -33,12 +33,12 @@ fi
 conda update conda
 conda create -n=cusignal-nifi
 conda activate cusignal-nifi
-conda update --name cusignal-nifi --file ../cusignal_conda_env.yml
+conda update -n=cusignal-nifi --file ../cusignal_conda_env.yml
 
-if [[set_PYTHON_VERSION]];
- then  conda install -n cusignal-nifi --python @1 -f cusignal_conda_env.yml
-else
-   conda install -name cusignal-nifi  --python @1 -f cusignal_conda_env.yml
+if [[ $SET_PYTHON_VERSION ]]; then
+  conda install -n cusignal-nifi --python @1 --f cusignal_conda_env-dev.yml
+elseif [[ $SET_PYTHON_VERSION ]]; then
+   conda install -n=cusignal-nifi --python @1 --file cusignal_conda_env-dev.yml
 fi
 
 

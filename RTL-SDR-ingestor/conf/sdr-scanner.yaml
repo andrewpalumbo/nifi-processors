@@ -1,0 +1,34 @@
+#!yaml
+
+
+#rtl_sdr, an I/Q recorder for RTL2832 based DVB-T receivers
+
+
+
+#setup for endpoint/gateway in a nifi network will return modulated signal with a classification (music/other),
+#raq I/Q
+
+#Usage:	 -f frequency_to_tune_to [Hz]
+#[-s samplerate (default: 2048000 Hz)]
+#[-d device_index (default: 0)]
+#[-g gain (default: 0 for auto)]
+#[-p ppm_error (default: 0)]
+#[-b output_block_size (default: 16 * 16384)]
+#[-n number of samples to read (default: 0, infinite)]
+#[-S force sync output (default: async)]
+#filename (a '-' dumps samples to stdout)
+
+samplerate: 1024000 Hz              # we're scanning so we want a reasonably high samplerate, such tht we can get > 1GHz
+device_index: 1
+gain: 0
+ppm_error: 0
+output_block_size: 262144            # default: 16 * 16384 = 262164
+number_of_samples_to_read: infinite  # default: 0, infinite
+force_sync_output: asynch            # default: async
+filename: -                          # a '-' dumps samples to stdout -- using stdout pipes in python code.
+bias-T: false                        # add 5v bias to an LNA preamp
+start_freq: 220000000 Hz             # frequency to begin scanning
+stride: 75000 Hz                     # stride which will accomadate a 15kHz bandwidth
+snap_to_peak: true                   # snap to the higest peak in the examined bandwidth as the midpoint
+end_freq: 16000000 Hz
+
