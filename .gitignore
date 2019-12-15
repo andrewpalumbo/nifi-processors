@@ -99,30 +99,9 @@ dkms.conf
 *.out
 *.app
 
-<?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
-  <component name="FacetManager">
-    <facet type="Python" name="Python">
-      <configuration sdkName="Python 2.7 (untitled)" />
-    </facet>
-  </component>
-</module><?xml version="1.0" encoding="UTF-8"?>
-<module version="4">
-  <component name="FacetManager">
-    <facet type="web" name="Web">
-      <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/RTL-SDR-ingestor/web/WEB-INF/web.xml" />
-        </descriptors>
-        <webroots>
-          <root url="file://$MODULE_DIR$/RTL-SDR-ingestor/web" relative="/" />
-        </webroots>
-      </configuration>
-    </facet>
-    <facet type="Python" name="Python">
-      <configuration sdkName="Python 2.7 (untitled)" />
-    </facet>
-  </component>
-</module>*.idea
 *.iml
 *.idea
+**/.DS_Store
+*.DS_Store
+**/*.idea
+**/*.iml
