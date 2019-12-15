@@ -4,8 +4,14 @@
  docker-env deploy clean clean-env conda-env@2.7 env@3.7 env@2.7 all@2.7:
 
 
-make all:
+all@2.7:
 
-make clean:
+clean@2.7:
 
+clean-env@2.7: conda deactivate -n=cusignal-nifi
 
+env@2.7: conda-env create --file cusignal_conda_dev-env.yml python=2.7 \
+    conda activate cusignal-nifi
+
+env: conda-env create --file cusignal_conda_dev-env.yml python=2.7 \
+    conda activate cusignal-nifi

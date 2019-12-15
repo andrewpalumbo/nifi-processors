@@ -16,6 +16,7 @@ dependencies:
   - matplotlib
   - nodejs
   - numba
+  - pyrtlsdr
   - pip
   - pytest
     - pip:

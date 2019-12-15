@@ -14,7 +14,7 @@ dependencies:
   - scipy
   - numpy
   - pandas
-  - cudatoolkit=10.0
+ # - cudatoolkit=10.0
   - boost
   - jupyterlab
   - matplotlib

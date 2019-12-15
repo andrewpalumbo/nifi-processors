@@ -1,30 +1,23 @@
 #!/usr/bin/env bash
 
-.PHONY  env@2.7 env java-build python-build all clean clean-env clean-env@2.7 \
- docker-env deploy clean clean-env conda-env@2.7 env@3.7 env@2.7 all@2.7:
+.PHONY env java-build-package  python-build-install all clean clean-env clean-env@2.7 \
+ docker-env deploy clean clean-env conda-env@2.7 env@2.7 all@2.7:
 
-    ./scripts/install_conda_env.sh python2.7
+env@2.7: ./scripts/install_conda_env.sh python2.7 conda-env@2.7 
 
-env@2.7: conda-env@2.7
-
-env@3.7:
-    ./scripts/install_conda_env.sh
-
-env: env@3.7
+env: ./scripts/install_conda_env.sh
 
 java-build: clean-env env && \
       package
 
 java-clean: 
-    cd RTL-SDR-ingestor && ./mvn clean
+    cd RTL-SDR-ingestor && mvn clean 
 
-python-build:
+python-build-install: 
     clean-env env && \
-    conda - && \
-    conda   && \
+    python setup.py install
 
-python install:
-
+python install: all python
 
 python-clean:
     find ./RTL-SDR-ingestor/nifi-nifi-rf-nar/src/main/python -type f -name '*.pyc' -exec rm {}
@@ -35,7 +28,7 @@ clean:
 
 all@2.7: clean clean-env@2.7 env@2.7 package
 
-all: clean clean-env env package
+all: clean clean-env env python-build package
 
 clean-env: conda clean --all && \
 
