@@ -14,10 +14,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.mahout.ingestors.SDR.RTL_SDR.RTL_SDR_Connector;
+package org.apache.mahout.sdr.ingestors.rtl_sdr;
 
 
-import org.apache.mahout.ingestors.SDR.AbstractSDRProcessor;
 import org.apache.nifi.annotation.behavior.ReadsAttribute;
 import org.apache.nifi.annotation.behavior.ReadsAttributes;
 import org.apache.nifi.annotation.behavior.WritesAttribute;
@@ -32,19 +31,20 @@ import org.apache.nifi.processor.*;
 import org.apache.nifi.processor.exception.ProcessException;
 import org.apache.nifi.processor.util.StandardValidators;
 
-import java.util.*;
+import java.util.List;
+import java.util.Set;
 
 @Tags({"example"})
 @CapabilityDescription("Provide a description")
 @SeeAlso({})
 @ReadsAttributes({@ReadsAttribute(attribute="", description="")})
 @WritesAttributes({@WritesAttribute(attribute="", description="")})
-public class RTL_SDR_SDR_Processor extends AbstractSDRProcessor {
+public  class RtlSdrModulatedClassified extends RtlSdrIngestor {
 
     public static final PropertyDescriptor MY_PROPERTY = new PropertyDescriptor
-            .Builder().name("RTL-SDR")
-            .displayName("RTL-SDR Software Defined Radio Recieve Only raw (IQ)...")
-            .description("scanning 30/Hz to 1.6Gh/z peak to peak waves in this beautiful world.")
+            .Builder().name("MY-SDR")
+            .displayName("RTL-SDR Software Defined Radio Recieve SDR signals")
+            .description("Example use with currelntly with RTL-SDR.com (RX-only) and the custream python library ")
             .required(true)
             .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
             .build();
@@ -60,13 +60,8 @@ public class RTL_SDR_SDR_Processor extends AbstractSDRProcessor {
 
     @Override
     protected void init(final ProcessorInitializationContext context) {
-        final List<PropertyDescriptor> descriptors = new ArrayList<PropertyDescriptor>();
-        descriptors.add(MY_PROPERTY);
-        this.descriptors = Collections.unmodifiableList(descriptors);
 
-        final Set<Relationship> relationships = new HashSet<Relationship>();
-        relationships.add(ownersRelatinoship);
-        this.relationships = Collections.unmodifiableSet(relationships);
+
     }
 
     @Override
@@ -75,7 +70,7 @@ public class RTL_SDR_SDR_Processor extends AbstractSDRProcessor {
     }
 
     @Override
-    public final List<PropertyDescriptor> getSupportedPropertyDescriptors() {
+    public  List<PropertyDescriptor> getSupportedPropertyDescriptors() {
         return descriptors;
     }
 
@@ -90,6 +85,6 @@ public class RTL_SDR_SDR_Processor extends AbstractSDRProcessor {
         if ( flowFile == null ) {
             return;
         }
-        // TODO implement
+
     }
 }

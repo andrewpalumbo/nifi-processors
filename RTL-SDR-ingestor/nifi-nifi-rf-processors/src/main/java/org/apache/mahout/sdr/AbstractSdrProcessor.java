@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.mahout.ingestors.SDR;
+package org.apache.mahout.sdr;
 
 
 import org.apache.nifi.components.PropertyDescriptor;
@@ -35,9 +35,6 @@ import org.apache.nifi.processor.ProcessorInitializationContext;
 import org.apache.nifi.processor.Relationship;
 import org.apache.nifi.processor.util.StandardValidators;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -46,7 +43,7 @@ import java.util.Set;
 @SeeAlso({})
 @ReadsAttributes({@ReadsAttribute(attribute="", description="")})
 @WritesAttributes({@WritesAttribute(attribute="", description="")})
-public abstract class AbstractSDRProcessor extends AbstractProcessor {
+public abstract class AbstractSdrProcessor extends AbstractProcessor {
 
     public static final PropertyDescriptor MY_PROPERTY = new PropertyDescriptor
             .Builder().name("MY-SDR")

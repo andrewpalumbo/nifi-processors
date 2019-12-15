@@ -16,19 +16,21 @@ java-build: clean-env env && \
       package
 
 java-clean: 
-    mvn clean
+    cd RTL-SDR-ingestor && ./mvn clean
 
 python-build:
     clean-env env && \
     conda - && \
     conda   && \
 
+python install:
+
 
 python-clean:
-
+    find ./RTL-SDR-ingestor/nifi-nifi-rf-nar/src/main/python -type f -name '*.pyc' -exec rm {}
 
 clean:
-    mvn clean && \
+    ./RTL-SDR-ingestor/mvn clean && \
     find ./RTL-SDR-ingestor/nifi-nifi-rf-nar/src/main/python -type f -name '*.pyc' -exec rm {}
 
 all@2.7: clean clean-env@2.7 env@2.7 package
@@ -41,7 +43,11 @@ clean-env2.7: conda clean-env --all  && \
 
 clean-all: clean-env clean
 
-package: java-build
+package:
+  cd RTL-SDR-ingestor && \
+  python-clean &&
+  python-build
+  python-install
 
 install: all
 

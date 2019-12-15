@@ -12,4 +12,4 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-org.apache.mahout.ingestors.SDR.RTL_SDR.RTL_SDR_Connector.RTL_SDR_SDR_Processor
+org.apache.mahout.sdr.ingestors.rtl_sdr.RtlSdrIngestor

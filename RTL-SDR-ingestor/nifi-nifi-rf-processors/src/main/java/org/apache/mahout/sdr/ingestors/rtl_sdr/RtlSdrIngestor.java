@@ -14,10 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.apache.mahout.ingestors.SDR.RTL_SDR;
+package org.apache.mahout.sdr.ingestors.rtl_sdr;
 
 
-import org.apache.mahout.ingestors.SDR.AbstractSDRProcessor;
+import org.apache.mahout.sdr.AbstractSdrProcessor;
 import org.apache.nifi.annotation.behavior.ReadsAttribute;
 import org.apache.nifi.annotation.behavior.ReadsAttributes;
 import org.apache.nifi.annotation.behavior.WritesAttribute;
@@ -39,12 +39,12 @@ import java.util.*;
 @SeeAlso({})
 @ReadsAttributes({@ReadsAttribute(attribute="", description="")})
 @WritesAttributes({@WritesAttribute(attribute="", description="")})
-public class RTL_SDR_SDR_Processor extends AbstractSDRProcessor {
+public class RtlSdrIngestor extends AbstractSdrProcessor {
 
     public static final PropertyDescriptor MY_PROPERTY = new PropertyDescriptor
             .Builder().name("RTL-SDR")
             .displayName("RTL-SDR Software Defined Radio Recieve Only raw (IQ)...")
-            .description("scanning 30/Hz to 1.6Gh/z peak to peak waves in  this beautiful fucking world.")
+            .description("scanning 30/Hz to 1.6Gh/z peak to peak waves in this beautiful world.")
             .required(true)
             .addValidator(StandardValidators.NON_EMPTY_VALIDATOR)
             .build();
@@ -75,7 +75,7 @@ public class RTL_SDR_SDR_Processor extends AbstractSDRProcessor {
     }
 
     @Override
-    public final List<PropertyDescriptor> getSupportedPropertyDescriptors() {
+    public  List<PropertyDescriptor> getSupportedPropertyDescriptors() {
         return descriptors;
     }
 

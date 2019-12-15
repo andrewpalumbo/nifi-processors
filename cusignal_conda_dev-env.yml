@@ -7,6 +7,10 @@ channels:
   - pytorch
 dependencies:
   - pytorch
+    #  - cudf
+    #  - cuml
+    #  - cugraph
+    #  - cusignal
   - scipy
   - numpy
   - pandas
@@ -18,5 +22,5 @@ dependencies:
   - numba
   - pip
   - pytest
-    - pip:
-         - git+https://github.com/cupy/cupy.git
+    #- pip:
+          # - git+https://github.com/cupy/cupy.git

@@ -19,7 +19,7 @@ These Nifi wrappers can be run on a E.g an Nvidia Jetson GPU as a gateway node o
 """
 
 setup(
-    name='cusignal',
+    name='nifi-cusignal-iot',
     version='0.1',
     description=shortdesc,
     long_description=longdesc,
