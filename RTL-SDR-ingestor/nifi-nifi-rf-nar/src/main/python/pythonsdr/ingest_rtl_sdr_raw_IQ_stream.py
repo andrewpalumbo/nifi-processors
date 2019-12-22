@@ -1,1 +1,1 @@
-from rtlsdr import RtlSdr
+from pyrtlsdr import RtlSdr
