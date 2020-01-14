@@ -3,7 +3,7 @@ cusignal-nifi Nar wrapper for cusignal
 
 conda installation:
 
-conda 4.7.x is a bit wonlky  with the commands, sometimes it accepts `--name` in all envrinoment changes and others it must me  `-n=` [1] 
+conda 4.7.x is a bit wonlky  with the commands, sometimes it accepts `--name` in all envrinoment changes and others it must be  `-n=` [1] 
 
 Ensurr that conda is correctly configured for your system.
 
